@@ -27,7 +27,7 @@ function generaPSW($lunghezzaPSW){
 
   }
 
-  return substr($password,0, $lunghezzaPSW);
+  return substr(str_shuffle($password),0, $lunghezzaPSW);
 }
 
 if(isset($_GET['length'])){
