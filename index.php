@@ -1,34 +1,10 @@
 <?php 
+include 'functions.php';
 
 $isSend = true;
 
 $lunghezzaPSW = $_GET['length'] ?? null ;
 
-
-/*
-1. ricevo un numero dall'utente,
-2. la funzione deve prendere una lettera, una lettera maiuscola, un numero e un sinbolo e li salva in una PSW fino a quando la lunghezza della PSW non raggiunge il numero dell'utente,
-3. 
-*/
-
-
-function generaPSW($lunghezzaPSW){
-  
-  $lettere = 'abcdefghijklmnopqrstuvwxyz';
-  $simboli = '!?&%$<>^+-*/()[]{}@#_=';
-  $password = '';
-
-  while (strlen($password) < $lunghezzaPSW) {
-
-    $password .= $lettere[rand(0, strlen($lettere) - 1)];
-    $password .= strtoupper($lettere[rand(0, strlen($lettere) - 1)]);
-    $password .= $simboli[rand(0, strlen($simboli) - 1)];
-    $password .= rand(0, 9);
-
-  }
-
-  return substr(str_shuffle($password),0, $lunghezzaPSW);
-}
 
 if(isset($_GET['length'])){
   $password = generaPSW($lunghezzaPSW);
